@@ -1,0 +1,35 @@
+---
+title: Distributed Task Queue
+description: A high-throughput task queue built on Redis Streams with at-least-once delivery, dead-letter queues, and a real-time dashboard.
+tags: [Go, Redis, Docker, gRPC]
+date: 2024-09-01
+github: https://github.com/dillo/distributed-task-queue
+featured: true
+---
+
+## Overview
+
+A production-grade distributed task queue designed to handle millions of jobs per day with predictable latency and strong delivery guarantees.
+
+## Motivation
+
+Most teams reach for SQS or RabbitMQ early, but the operational overhead can be significant for smaller deployments. This project explores what a self-hosted alternative looks like when built on Redis Streams — a primitive that already handles ordering, consumer groups, and acknowledgement.
+
+## Architecture
+
+- **Producer API** — gRPC service that accepts job submissions and writes to a Redis Stream
+- **Worker pool** — Configurable pool of goroutines consuming from the stream via consumer groups
+- **Dead-letter queue** — Failed jobs (after N retries) are moved to a separate stream for inspection
+- **Dashboard** — Server-sent events feed into a lightweight React UI showing queue depth and throughput in real time
+
+## Key decisions
+
+**Redis Streams over pub/sub** — Streams give us persistent, replayable messages and consumer-group semantics. Pub/sub is fire-and-forget.
+
+**At-least-once delivery** — Workers ACK only after successful processing. Crashes during processing result in re-delivery on the next consumer group claim cycle.
+
+**Backpressure** — Producers block when the stream length exceeds a configurable high-water mark, preventing runaway queue growth.
+
+## Results
+
+In local benchmarks against a 3-node Redis cluster: ~120k jobs/sec throughput, p99 enqueue latency under 2ms.

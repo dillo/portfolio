@@ -1,0 +1,66 @@
+---
+title: On Writing Readable Code
+date: 2024-11-10
+summary: Readability isn't a soft skill — it's an engineering discipline. Some things I've learned about writing code that communicates clearly.
+tags: [craft, engineering]
+draft: false
+---
+
+Code is read far more often than it's written. Yet most engineering discussions centre on correctness and performance, treating readability as a soft skill — something you develop by osmosis, not by deliberate practice.
+
+I've come to think of readability as an engineering discipline with learnable rules. Here are a few principles I keep returning to.
+
+## Name things at the right altitude
+
+The most common readability failure I see is names that describe implementation rather than intent.
+
+```ts
+// What does this do?
+const x = arr.filter(i => i.v > 0).map(i => i.v * 2)
+
+// Now it's obvious:
+const doubledPositiveValues = measurements
+  .filter(m => m.value > 0)
+  .map(m => m.value * 2)
+```
+
+Good names are documentation that never goes stale. They describe *what* something is or does, not *how*.
+
+## Prefer positive conditions
+
+Negated conditions compound in ways that are genuinely hard to parse:
+
+```ts
+if (!isNotAuthorised && !hasExpired) { ... }
+```
+
+Flip to positive:
+
+```ts
+if (isAuthorised && isActive) { ... }
+```
+
+Your brain handles positive assertions faster than double negatives. This isn't style — it's cognitive load.
+
+## Keep functions short, but for the right reason
+
+"Functions should be short" is a rule that's often followed for the wrong reason. The goal isn't line count — it's that a function should do one thing and that thing should be evident from its name.
+
+A 60-line function that truly does one coherent thing is more readable than three 20-line functions with leaky abstractions between them.
+
+## Comments explain *why*, not *what*
+
+If a comment describes what the code does, the code should be rewritten until it's self-explanatory. Reserve comments for the *why*: a workaround for a subtle bug, a non-obvious invariant, a constraint imposed by something external to the codebase.
+
+```ts
+// Offset by 1 because the external API returns 1-based page numbers
+const page = params.page - 1
+```
+
+That's a comment earning its place. "Subtract one from page" would not be.
+
+## Consistency is underrated
+
+A codebase where every function is named slightly differently, where some files use early returns and others don't, where variable names mix camelCase and snake_case — that codebase is *tiring* to read even if each individual file is fine.
+
+Consistency lets readers build a mental model once and reuse it everywhere. That's the real payoff of a style guide: not the specific choices, but the reduction in context-switching.

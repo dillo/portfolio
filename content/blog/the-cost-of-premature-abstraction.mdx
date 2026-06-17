@@ -1,0 +1,44 @@
+---
+title: The Cost of Premature Abstraction
+date: 2024-08-22
+summary: Duplication is uncomfortable. Abstraction feels like progress. But abstracting too early often costs more than the duplication it was meant to fix.
+tags: [craft, engineering, architecture]
+draft: false
+---
+
+There's a moment every engineer knows: you've just written a function for the third time and it *feels wrong*. The instinct is to abstract — pull out the shared logic, give it a name, never write it again.
+
+That instinct is usually right. But the timing matters enormously.
+
+## The problem with the rule of three
+
+"Three strikes and you refactor" is reasonable advice, but it hides an assumption: that the three instances are actually the same thing. They share surface-level structure, but do they represent the same concept?
+
+I've been burned more than once by abstracting three things that *looked* the same but turned out to have subtly different requirements. The abstraction starts with three parameters. A month later it has seven, half of them boolean flags, and you've made all three call sites harder to understand than the duplication would have been.
+
+## Duplication is cheaper than the wrong abstraction
+
+This is the insight from Sandi Metz that I keep coming back to: *duplication is far cheaper than the wrong abstraction.*
+
+Duplicated code is unambiguous. Each copy can evolve independently. When requirements diverge — and they usually do — you don't have to untangle a shared abstraction that was trying to serve two masters.
+
+The wrong abstraction, by contrast, is expensive. It creates coupling between things that shouldn't be coupled. It gets harder to remove the longer it lives, because more code grows to depend on it.
+
+## When to abstract
+
+Abstracting is right when you can answer yes to both:
+
+1. **Do these things represent the same concept** (not just the same structure)?
+2. **Will they continue to evolve together**?
+
+If the answer to either is "I'm not sure," wait. Real usage patterns will reveal the right abstraction better than prediction will.
+
+## The shape of a good abstraction
+
+When the time is right, a good abstraction has a clear name that captures the concept rather than the mechanism. It has a narrow interface — the fewer inputs, the better. And it makes the call site simpler, not more complex.
+
+If you have to read the implementation to understand a call site, the abstraction has failed.
+
+---
+
+Duplication is uncomfortable because it feels like a code quality problem. But living with it a little longer — until the right abstraction becomes obvious — is often the more disciplined choice.

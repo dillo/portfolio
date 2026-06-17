@@ -1,0 +1,44 @@
+---
+title: CLI Dev Toolkit
+description: A batteries-included CLI framework in TypeScript with auto-generated help, shell completions, structured logging, and a plugin system.
+tags: [TypeScript, Node.js, Open Source]
+date: 2024-03-15
+github: https://github.com/dillo/cli-dev-toolkit
+live: https://cli-dev-toolkit.dev
+featured: false
+---
+
+## Overview
+
+A TypeScript-first CLI framework that removes boilerplate so teams can focus on building the actual commands rather than wiring up argument parsing, help text, and logging.
+
+## Problem
+
+Every internal CLI tool at my previous job started with the same 200 lines of setup: argument parsing, `--help` generation, log formatting, config file loading. That duplication accreted subtle inconsistencies over time. This project is an extraction of that common foundation.
+
+## Features
+
+- **Declarative command definitions** — define arguments, flags, and descriptions in a single object; help text is generated automatically
+- **Shell completions** — generates Bash and Zsh completion scripts from the same command definitions
+- **Structured logging** — `pino`-backed logger with pretty-printing in dev and JSON in CI/production
+- **Plugin system** — commands can be contributed by installed npm packages following a simple convention
+- **Config file loading** — merges `~/.toolname.json`, project-level `.toolname.json`, and environment variables with a defined precedence
+
+## Example
+
+```ts
+import { createCLI } from 'cli-dev-toolkit'
+
+const cli = createCLI({ name: 'mytool', version: '1.0.0' })
+
+cli.command({
+  name: 'deploy',
+  description: 'Deploy to the target environment',
+  args: { env: { type: 'string', required: true } },
+  run: async ({ args, log }) => {
+    log.info({ env: args.env }, 'Deploying...')
+  },
+})
+
+cli.run()
+```
