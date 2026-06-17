@@ -28,7 +28,7 @@ export default function Footer() {
             </svg>
           </Link>
           <Link
-            href="https://github.com/"
+            href="https://github.com/dillo"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
