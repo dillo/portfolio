@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio
 
-## Getting Started
+Personal portfolio site built with Next.js 14, Tailwind CSS, and MDX.
 
-First, run the development server:
+## Stack
+
+- **Framework** — Next.js 14 (App Router, fully static)
+- **Styling** — Tailwind CSS v4 + `@tailwindcss/typography`
+- **Content** — MDX files in `content/` parsed with `gray-matter` + `next-mdx-remote`
+- **Animations** — Framer Motion (page transitions)
+- **Hosting** — Vercel
+
+## Running locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Adding a project
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Create a new file in `content/projects/your-project-name.mdx`:
 
-## Learn More
+```mdx
+---
+title: Your Project Title
+description: One sentence description shown on the card.
+tags: [TypeScript, Go, React]
+date: 2024-01-15
+github: https://github.com/you/your-repo # optional
+live: https://yourproject.com # optional
+featured: false
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Overview
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Write your project write-up here in Markdown...
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The slug is derived from the filename (`your-project-name` → `/projects/your-project-name`).
 
-## Deploy on Vercel
+## Adding a blog post
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Create a new file in `content/blog/your-post-slug.mdx`:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```mdx
+---
+title: Your Post Title
+date: 2024-01-15
+summary: One sentence shown on the post list card.
+tags: [engineering, craft]
+draft: false # set true to hide from the list
+---
+
+Write your post here in Markdown...
+```
+
+Set `draft: true` to write without publishing. Remove it (or set `false`) to publish.
+
+## Updating the Vercel URL
+
+Once deployed, replace `dillo.vercel.app` in these files with your real deployment URL:
+
+- `app/layout.tsx` — `BASE_URL`
+- `app/sitemap.ts` — `BASE_URL`
+- `app/robots.ts` — `sitemap` field
+- `app/opengraph-image.tsx` — the URL label in the OG image
+
+## Scripts
+
+| Command          | Description                        |
+| ---------------- | ---------------------------------- |
+| `npm run dev`    | Start dev server at localhost:3000 |
+| `npm run build`  | Production build                   |
+| `npm run lint`   | ESLint                             |
+| `npm run format` | Prettier (auto-formats all files)  |
