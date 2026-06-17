@@ -1,8 +1,4 @@
 {
-  "attribution": {
-    "commit": "",
-    "pr": ""
-  },
   "permissions": {
     "allow": [
       "Read(//Users/locutus/Dev/**)",
@@ -12,7 +8,8 @@
       "Bash(git commit -m ' *)",
       "Bash(npm run *)",
       "Skill(update-config)",
-      "Skill(update-config:*)"
+      "Skill(update-config:*)",
+      "Bash(mkdir -p /Users/locutus/Dev/portfolio/app/projects/\\\\[slug\\\\])"
     ]
   }
 }
