@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <div className="flex flex-col gap-24">
       {/* Hero */}
-      <section className="flex flex-col gap-6 pt-12">
+      <section className="flex flex-col gap-6">
         <div className="flex flex-col gap-3">
           <p className="text-accent text-sm font-medium tracking-widest uppercase">
             Software Engineer
