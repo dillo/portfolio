@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 })
 
-const BASE_URL = 'https://dillo.vercel.app'
+const BASE_URL = 'https://portfolio-xi-wine-28.vercel.app'
 
 export const metadata: Metadata = {
   title: {

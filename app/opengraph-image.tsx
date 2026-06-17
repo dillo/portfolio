@@ -36,7 +36,7 @@ export default function OGImage() {
       <div style={{ color: '#94a3b8', fontSize: '24px', lineHeight: 1.4, maxWidth: '700px' }}>
         I build reliable, scalable software.
       </div>
-      <div style={{ color: '#475569', fontSize: '16px', marginTop: '16px' }}>dillo.vercel.app</div>
+      <div style={{ color: '#475569', fontSize: '16px', marginTop: '16px' }}>https://portfolio-xi-wine-28.vercel.app/</div>
     </div>,
     size
   )

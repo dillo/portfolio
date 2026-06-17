@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { getAllProjects, getAllPosts } from '@/lib/mdx'
 
-const BASE_URL = 'https://dillo.vercel.app'
+const BASE_URL = 'https://portfolio-xi-wine-28.vercel.app'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [
