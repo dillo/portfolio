@@ -1,11 +1,18 @@
 {
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
   "permissions": {
     "allow": [
       "Read(//Users/locutus/Dev/**)",
       "Bash(npx create-next-app@latest portfolio --typescript --tailwind --eslint --app --src-dir=false --import-alias=\"@/*\" --yes)",
       "Bash(npm install *)",
       "Bash(git add *)",
-      "Bash(git commit -m ' *)"
+      "Bash(git commit -m ' *)",
+      "Bash(npm run *)",
+      "Skill(update-config)",
+      "Skill(update-config:*)"
     ]
   }
 }
