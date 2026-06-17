@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/locutus/Dev/**)",
+      "Bash(npx create-next-app@latest portfolio --typescript --tailwind --eslint --app --src-dir=false --import-alias=\"@/*\" --yes)"
+    ]
+  }
+}
