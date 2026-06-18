@@ -45,7 +45,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="bg-background text-foreground flex min-h-full flex-col">
         <ThemeProvider>
           <Nav />
-          <main className="mx-auto w-full max-w-4xl flex-1 px-6 py-12">
+          <main className="mx-auto w-full max-w-6xl flex-1 px-6 py-12">
             <PageTransition>{children}</PageTransition>
           </main>
           <Footer />
