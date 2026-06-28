@@ -2,10 +2,10 @@ import Link from 'next/link'
 
 export default function Footer() {
   return (
-    <footer className="border-border mt-auto border-t">
-      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-8 sm:flex-row">
-        <p className="text-muted text-sm">
-          © {new Date().getFullYear()} Dillo Raju. All rights reserved.
+    <footer className="mt-auto px-4 pb-6 sm:px-6 lg:px-8">
+      <div className="border-border bg-paper/75 mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 rounded-lg border px-5 py-5 backdrop-blur sm:flex-row">
+        <p className="text-muted font-mono text-xs uppercase">
+          © {new Date().getFullYear()} Dillo Raju / built with care
         </p>
         <div className="flex items-center gap-4">
           <Link

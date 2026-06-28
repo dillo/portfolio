@@ -30,17 +30,20 @@ export default async function BlogPostPage({ params }: Props) {
   const { title, date, summary, tags } = post.frontmatter
 
   return (
-    <article className="flex flex-col gap-10">
+    <article className="mx-auto flex max-w-4xl flex-col gap-10">
       {/* Header */}
-      <div className="flex flex-col gap-4">
-        <Link href="/blog" className="text-muted hover:text-foreground text-sm transition-colors">
-          ← All posts
+      <div className="border-border bg-paper/72 rounded-lg border p-6 sm:p-8">
+        <Link
+          href="/blog"
+          className="text-muted hover:text-foreground font-mono text-xs uppercase transition-colors"
+        >
+          Back to posts
         </Link>
-        <div className="flex flex-col gap-3">
-          <h1 className="text-3xl font-bold tracking-tight">{title}</h1>
-          <p className="text-muted text-lg">{summary}</p>
+        <div className="mt-6 flex flex-col gap-4">
+          <h1 className="text-5xl font-black tracking-tight sm:text-6xl">{title}</h1>
+          <p className="text-muted text-lg leading-8">{summary}</p>
         </div>
-        <div className="text-muted flex flex-wrap items-center gap-3 text-xs">
+        <div className="text-muted mt-6 flex flex-wrap items-center gap-3 font-mono text-xs uppercase">
           <time dateTime={date}>
             {new Date(date).toLocaleDateString('en-US', {
               year: 'numeric',
@@ -51,11 +54,11 @@ export default async function BlogPostPage({ params }: Props) {
           <span>·</span>
           <span>{readingTime(post.content)}</span>
         </div>
-        <div className="flex flex-wrap gap-2">
+        <div className="mt-5 flex flex-wrap gap-2">
           {tags.map((tag) => (
             <span
               key={tag}
-              className="border-border bg-card text-muted rounded-full border px-2.5 py-0.5 text-xs"
+              className="border-border bg-background/70 text-muted rounded-full border px-2.5 py-1 font-mono text-[11px] uppercase"
             >
               {tag}
             </span>
@@ -63,10 +66,8 @@ export default async function BlogPostPage({ params }: Props) {
         </div>
       </div>
 
-      <hr className="border-border" />
-
       {/* MDX body */}
-      <div className="prose prose-neutral dark:prose-invert max-w-none">
+      <div className="prose prose-neutral dark:prose-invert bg-paper/72 prose-headings:font-black prose-a:text-accent max-w-none rounded-lg border border-border p-6 sm:p-8">
         <MDXRemote source={post.content} />
       </div>
     </article>

@@ -1,6 +1,6 @@
 'use client'
 
-import { createContext, useContext, useEffect, useState } from 'react'
+import { createContext, useContext, useEffect, useSyncExternalStore } from 'react'
 
 type Theme = 'light' | 'dark'
 
@@ -9,22 +9,30 @@ const ThemeContext = createContext<{ theme: Theme; toggle: () => void }>({
   toggle: () => {},
 })
 
+function getPreferredTheme(): Theme {
+  if (typeof window === 'undefined') return 'light'
+  const stored = localStorage.getItem('theme') as Theme | null
+  if (stored === 'light' || stored === 'dark') return stored
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+}
+
+function subscribeTheme(listener: () => void) {
+  window.addEventListener('theme-change', listener)
+  return () => window.removeEventListener('theme-change', listener)
+}
+
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>('light')
+  const theme = useSyncExternalStore<Theme>(subscribeTheme, getPreferredTheme, () => 'light')
 
   useEffect(() => {
-    const stored = localStorage.getItem('theme') as Theme | null
-    const preferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-    const initial = stored ?? preferred
-    setTheme(initial)
-    document.documentElement.classList.toggle('dark', initial === 'dark')
-  }, [])
+    document.documentElement.classList.toggle('dark', theme === 'dark')
+  }, [theme])
 
   const toggle = () => {
     const next = theme === 'light' ? 'dark' : 'light'
-    setTheme(next)
     document.documentElement.classList.toggle('dark', next === 'dark')
     localStorage.setItem('theme', next)
+    window.dispatchEvent(new Event('theme-change'))
   }
 
   return <ThemeContext.Provider value={{ theme, toggle }}>{children}</ThemeContext.Provider>

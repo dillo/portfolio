@@ -50,31 +50,34 @@ const links = [
 export default function Contact() {
   return (
     <div className="flex flex-col gap-10">
-      <div className="flex flex-col gap-2">
-        <h1 className="text-3xl font-bold tracking-tight">Contact</h1>
-        <p className="text-muted">
+      <div className="border-border bg-paper/72 rounded-lg border p-6 sm:p-8">
+        <p className="font-mono text-xs uppercase text-accent">Contact</p>
+        <h1 className="mt-3 max-w-3xl text-5xl font-black tracking-tight sm:text-6xl">
+          Let&apos;s talk through the problem before the solution hardens.
+        </h1>
+        <p className="text-muted mt-5 max-w-2xl leading-7">
           The best way to get in touch is via LinkedIn or Medium. I read everything.
         </p>
       </div>
 
-      <div className="flex flex-col gap-4">
+      <div className="grid gap-4 lg:grid-cols-2">
         {links.map(({ label, handle, href, description, icon }) => (
           <Link
             key={label}
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className="group border-border bg-card hover:border-accent flex items-start gap-5 rounded-lg border p-6 transition-colors"
+            className="group border-border bg-paper/78 hover:border-accent flex min-h-56 items-start gap-5 rounded-lg border p-6 transition-colors"
           >
             <span className="text-muted group-hover:text-accent mt-0.5 shrink-0 transition-colors">
               {icon}
             </span>
             <div className="flex flex-col gap-1">
               <div className="flex items-baseline gap-2">
-                <span className="text-foreground font-semibold">{label}</span>
-                <span className="text-muted text-xs">{handle}</span>
+                <span className="text-foreground text-xl font-black">{label}</span>
+                <span className="text-muted font-mono text-[11px] uppercase">{handle}</span>
               </div>
-              <p className="text-muted text-sm leading-relaxed">{description}</p>
+              <p className="text-muted mt-4 text-sm leading-6">{description}</p>
             </div>
           </Link>
         ))}

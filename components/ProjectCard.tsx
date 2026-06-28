@@ -10,21 +10,21 @@ export default function ProjectCard({ slug, frontmatter }: Props) {
   const { title, description, tags, github, live } = frontmatter
 
   return (
-    <article className="group border-border bg-card hover:border-accent flex flex-col gap-4 rounded-lg border p-6 transition-colors">
+    <article className="group border-border bg-paper/78 hover:border-accent flex min-h-72 flex-col gap-5 rounded-lg border p-6 shadow-[0_18px_60px_rgba(23,19,15,0.06)] backdrop-blur transition-colors">
       <div className="flex flex-col gap-2">
         <Link href={`/projects/${slug}`}>
-          <h2 className="text-foreground group-hover:text-accent text-lg font-semibold transition-colors">
+          <h2 className="text-foreground group-hover:text-accent text-2xl font-black tracking-tight transition-colors">
             {title}
           </h2>
         </Link>
-        <p className="text-muted text-sm leading-relaxed">{description}</p>
+        <p className="text-muted text-sm leading-6">{description}</p>
       </div>
 
       <div className="flex flex-wrap gap-2">
         {tags.map((tag) => (
           <span
             key={tag}
-            className="bg-background text-muted border-border rounded-full border px-2.5 py-0.5 text-xs font-medium"
+            className="bg-background/70 text-muted border-border rounded-full border px-2.5 py-1 font-mono text-[11px] uppercase"
           >
             {tag}
           </span>
@@ -34,9 +34,9 @@ export default function ProjectCard({ slug, frontmatter }: Props) {
       <div className="mt-auto flex items-center gap-4 pt-2">
         <Link
           href={`/projects/${slug}`}
-          className="text-accent hover:text-accent-hover text-xs font-medium transition-colors"
+          className="text-accent hover:text-accent-hover font-mono text-xs font-semibold uppercase transition-colors"
         >
-          Read more →
+          Read case study
         </Link>
         {github && (
           <a
