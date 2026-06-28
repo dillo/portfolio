@@ -30,21 +30,21 @@ export default async function ProjectPage({ params }: Props) {
   const { title, description, tags, date, github, live } = project.frontmatter
 
   return (
-    <article className="flex flex-col gap-10">
+    <article className="mx-auto flex max-w-5xl flex-col gap-10">
       {/* Header */}
-      <div className="flex flex-col gap-4">
+      <div className="border-border bg-paper/72 rounded-lg border p-6 sm:p-8">
         <Link
           href="/projects"
-          className="text-muted hover:text-foreground text-sm transition-colors"
+          className="text-muted hover:text-foreground font-mono text-xs uppercase transition-colors"
         >
-          ← All projects
+          Back to projects
         </Link>
-        <div className="flex flex-col gap-3">
-          <h1 className="text-3xl font-bold tracking-tight">{title}</h1>
-          <p className="text-muted text-lg">{description}</p>
+        <div className="mt-6 flex flex-col gap-4">
+          <h1 className="max-w-4xl text-5xl font-black tracking-tight sm:text-6xl">{title}</h1>
+          <p className="text-muted max-w-3xl text-lg leading-8">{description}</p>
         </div>
-        <div className="flex flex-wrap items-center gap-4">
-          <time className="text-muted text-xs">
+        <div className="mt-6 flex flex-wrap items-center gap-4">
+          <time className="text-muted font-mono text-xs uppercase">
             {new Date(date).toLocaleDateString('en-US', {
               year: 'numeric',
               month: 'long',
@@ -55,7 +55,7 @@ export default async function ProjectPage({ params }: Props) {
               href={github}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted hover:text-foreground flex items-center gap-1.5 text-xs transition-colors"
+              className="text-muted hover:text-foreground flex items-center gap-1.5 font-mono text-xs uppercase transition-colors"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -74,7 +74,7 @@ export default async function ProjectPage({ params }: Props) {
               href={live}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted hover:text-foreground flex items-center gap-1.5 text-xs transition-colors"
+              className="text-muted hover:text-foreground flex items-center gap-1.5 font-mono text-xs uppercase transition-colors"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -93,11 +93,11 @@ export default async function ProjectPage({ params }: Props) {
             </a>
           )}
         </div>
-        <div className="flex flex-wrap gap-2">
+        <div className="mt-5 flex flex-wrap gap-2">
           {tags.map((tag) => (
             <span
               key={tag}
-              className="border-border bg-card text-muted rounded-full border px-2.5 py-0.5 text-xs font-medium"
+              className="border-border bg-background/70 text-muted rounded-full border px-2.5 py-1 font-mono text-[11px] uppercase"
             >
               {tag}
             </span>
@@ -105,10 +105,8 @@ export default async function ProjectPage({ params }: Props) {
         </div>
       </div>
 
-      <hr className="border-border" />
-
       {/* MDX body */}
-      <div className="prose prose-neutral dark:prose-invert max-w-none">
+      <div className="prose prose-neutral dark:prose-invert bg-paper/72 prose-headings:font-black prose-a:text-accent max-w-none rounded-lg border border-border p-6 sm:p-8">
         <MDXRemote source={project.content} />
       </div>
     </article>

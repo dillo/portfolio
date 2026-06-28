@@ -19,23 +19,35 @@ export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <header className="border-border bg-background/80 sticky top-0 z-50 border-b backdrop-blur-md">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+    <header className="sticky top-0 z-50 px-4 pt-4 sm:px-6 lg:px-8">
+      <nav className="border-border bg-paper/82 mx-auto flex max-w-7xl items-center justify-between rounded-lg border px-4 py-3 shadow-[0_18px_60px_rgba(23,19,15,0.08)] backdrop-blur-xl">
         <Link
           href="/"
-          className="text-foreground hover:text-accent text-lg font-semibold tracking-tight transition-colors"
+          className="group flex items-center gap-3"
         >
-          Dillo Raju
+          <span className="bg-foreground text-background flex size-9 items-center justify-center rounded-md font-mono text-xs font-bold">
+            DR
+          </span>
+          <span className="flex flex-col leading-none">
+            <span className="text-foreground group-hover:text-accent text-sm font-semibold transition-colors">
+              Dillo Raju
+            </span>
+            <span className="text-muted hidden font-mono text-[10px] uppercase sm:inline">
+              systems / product
+            </span>
+          </span>
         </Link>
 
         {/* Desktop links */}
-        <ul className="hidden items-center gap-6 md:flex">
+        <ul className="border-border bg-background/45 hidden items-center gap-1 rounded-md border p-1 md:flex">
           {links.map(({ href, label }) => (
             <li key={href}>
               <Link
                 href={href}
-                className={`hover:text-accent text-sm transition-colors ${
-                  pathname === href ? 'text-accent font-medium' : 'text-muted'
+                className={`block rounded px-3 py-1.5 text-xs font-medium transition-colors ${
+                  pathname === href
+                    ? 'bg-foreground text-background'
+                    : 'text-muted hover:bg-card hover:text-foreground'
                 }`}
               >
                 {label}
@@ -49,7 +61,7 @@ export default function Nav() {
           <button
             onClick={toggle}
             aria-label="Toggle dark mode"
-            className="text-muted hover:bg-card hover:text-foreground rounded-md p-2 transition-colors"
+            className="border-border text-muted hover:bg-card hover:text-foreground rounded-md border p-2 transition-colors"
           >
             {theme === 'dark' ? (
               <svg
@@ -87,7 +99,7 @@ export default function Nav() {
           <button
             onClick={() => setMenuOpen((o) => !o)}
             aria-label="Toggle menu"
-            className="text-muted hover:bg-card hover:text-foreground rounded-md p-2 transition-colors md:hidden"
+            className="border-border text-muted hover:bg-card hover:text-foreground rounded-md border p-2 transition-colors md:hidden"
           >
             {menuOpen ? (
               <svg
@@ -126,14 +138,16 @@ export default function Nav() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <ul className="border-border bg-background border-t px-6 pb-4 md:hidden">
+        <ul className="border-border bg-paper/95 mx-auto mt-2 max-w-7xl rounded-lg border px-4 py-3 shadow-[0_18px_60px_rgba(23,19,15,0.08)] backdrop-blur-xl md:hidden">
           {links.map(({ href, label }) => (
             <li key={href}>
               <Link
                 href={href}
                 onClick={() => setMenuOpen(false)}
-                className={`hover:text-accent block py-2 text-sm transition-colors ${
-                  pathname === href ? 'text-accent font-medium' : 'text-muted'
+                className={`block rounded-md px-3 py-2 text-sm transition-colors ${
+                  pathname === href
+                    ? 'bg-foreground text-background font-medium'
+                    : 'text-muted hover:bg-card hover:text-foreground'
                 }`}
               >
                 {label}

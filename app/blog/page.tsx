@@ -12,9 +12,14 @@ export default function Blog() {
 
   return (
     <div className="flex flex-col gap-10">
-      <div className="flex flex-col gap-2">
-        <h1 className="text-3xl font-bold tracking-tight">Blog</h1>
-        <p className="text-muted">Thoughts on software engineering, systems, and craft.</p>
+      <div className="border-border bg-paper/72 rounded-lg border p-6 sm:p-8">
+        <p className="font-mono text-xs uppercase text-accent">Field notes</p>
+        <h1 className="mt-3 max-w-3xl text-5xl font-black tracking-tight sm:text-6xl">
+          Writing about software that survives contact with reality.
+        </h1>
+        <p className="text-muted mt-5 max-w-2xl leading-7">
+          Thoughts on engineering, systems, and craft.
+        </p>
       </div>
 
       {posts.length === 0 ? (

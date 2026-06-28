@@ -4,23 +4,33 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #ffffff;
-  --foreground: #0f172a;
-  --muted: #64748b;
-  --border: #e2e8f0;
-  --card: #f8fafc;
-  --accent: #6366f1;
-  --accent-hover: #4f46e5;
+  --background: #f5f1e8;
+  --foreground: #17130f;
+  --muted: #6e6458;
+  --border: #d8cab8;
+  --card: #fffaf0;
+  --accent: #b4432a;
+  --accent-hover: #842f20;
+  --accent-soft: #f0d7bd;
+  --ink: #17130f;
+  --paper: #fffaf0;
+  --signal: #226b5b;
+  --signal-soft: #c7ded2;
 }
 
 .dark {
-  --background: #0f172a;
-  --foreground: #f1f5f9;
-  --muted: #94a3b8;
-  --border: #1e293b;
-  --card: #1e293b;
-  --accent: #818cf8;
-  --accent-hover: #6366f1;
+  --background: #12100d;
+  --foreground: #f4ead8;
+  --muted: #b4a895;
+  --border: #332b22;
+  --card: #1d1914;
+  --accent: #ff8a5b;
+  --accent-hover: #ffb088;
+  --accent-soft: #3a241b;
+  --ink: #f4ead8;
+  --paper: #1d1914;
+  --signal: #7bd0b4;
+  --signal-soft: #17382f;
 }
 
 @theme inline {
@@ -31,12 +41,18 @@
   --color-card: var(--card);
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
+  --color-accent-soft: var(--accent-soft);
+  --color-ink: var(--ink);
+  --color-paper: var(--paper);
+  --color-signal: var(--signal);
+  --color-signal-soft: var(--signal-soft);
   --font-sans: var(--font-inter);
   --font-mono: var(--font-jetbrains-mono);
 }
 
 html {
   scrollbar-gutter: stable;
+  scroll-padding-top: 6rem;
 }
 
 body {
@@ -45,6 +61,50 @@ body {
   transition:
     background-color 0.2s ease,
     color 0.2s ease;
+}
+
+body::before {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  content: '';
+  background:
+    linear-gradient(to right, color-mix(in srgb, var(--border) 56%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--border) 56%, transparent) 1px, transparent 1px),
+    radial-gradient(circle at 18% 12%, color-mix(in srgb, var(--accent-soft) 70%, transparent), transparent 30rem),
+    radial-gradient(circle at 86% 4%, color-mix(in srgb, var(--signal-soft) 80%, transparent), transparent 24rem),
+    var(--background);
+  background-size: 44px 44px, 44px 44px, auto, auto, auto;
+}
+
+body::after {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  content: '';
+  background-image: linear-gradient(
+    120deg,
+    transparent,
+    color-mix(in srgb, var(--paper) 42%, transparent) 34%,
+    transparent 68%
+  );
+  opacity: 0.72;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .drift {
+    animation: drift 18s ease-in-out infinite alternate;
+  }
+
+  @keyframes drift {
+    from {
+      transform: translate3d(-10px, 0, 0) rotate(-1deg);
+    }
+    to {
+      transform: translate3d(10px, -12px, 0) rotate(1deg);
+    }
+  }
 }
 
 ::selection {
