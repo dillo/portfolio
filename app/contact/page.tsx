@@ -51,7 +51,7 @@ export default function Contact() {
   return (
     <div className="flex flex-col gap-10">
       <div className="border-border bg-paper/72 rounded-lg border p-6 sm:p-8">
-        <p className="font-mono text-xs uppercase text-accent">Contact</p>
+        <p className="text-accent font-mono text-xs uppercase">Contact</p>
         <h1 className="mt-3 max-w-3xl text-5xl font-black tracking-tight sm:text-6xl">
           Let&apos;s talk through the problem before the solution hardens.
         </h1>

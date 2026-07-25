@@ -10,8 +10,10 @@ export default function Resume() {
     <div className="flex flex-col gap-8">
       <div className="border-border bg-paper/72 flex flex-col gap-6 rounded-lg border p-6 sm:flex-row sm:items-end sm:justify-between sm:p-8">
         <div>
-          <p className="font-mono text-xs uppercase text-accent">Resume</p>
-          <h1 className="mt-3 text-5xl font-black tracking-tight sm:text-6xl">Experience record.</h1>
+          <p className="text-accent font-mono text-xs uppercase">Resume</p>
+          <h1 className="mt-3 text-5xl font-black tracking-tight sm:text-6xl">
+            Experience record.
+          </h1>
         </div>
         <a
           href="/resume.pdf"
