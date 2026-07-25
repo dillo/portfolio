@@ -23,7 +23,8 @@ export const metadata: Metadata = {
     default: 'Dillo Raju',
     template: '%s | Dillo Raju',
   },
-  description: 'Senior software engineer — projects, writing, and more.',
+  description:
+    'Dillo Raju — senior software engineer and technical lead working on AI-enabled product development, application modernization, and developer productivity.',
   metadataBase: new URL(BASE_URL),
   openGraph: {
     type: 'website',

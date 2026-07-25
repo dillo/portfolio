@@ -4,16 +4,6 @@ import matter from 'gray-matter'
 
 const contentDir = path.join(process.cwd(), 'content')
 
-export interface ProjectFrontmatter {
-  title: string
-  description: string
-  tags: string[]
-  date: string
-  github?: string
-  live?: string
-  featured?: boolean
-}
-
 export interface BlogFrontmatter {
   title: string
   date: string
@@ -43,19 +33,6 @@ function parseFile<T>(dir: string, filename: string): ContentItem<T> {
     frontmatter: data as T,
     content,
   }
-}
-
-export function getAllProjects(): ContentItem<ProjectFrontmatter>[] {
-  return readDir('projects')
-    .map((f) => parseFile<ProjectFrontmatter>('projects', f))
-    .sort((a, b) => new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime())
-}
-
-export function getProjectBySlug(slug: string): ContentItem<ProjectFrontmatter> | null {
-  const filename = `${slug}.mdx`
-  const filePath = path.join(contentDir, 'projects', filename)
-  if (!fs.existsSync(filePath)) return null
-  return parseFile<ProjectFrontmatter>('projects', filename)
 }
 
 export function getAllPosts(): ContentItem<BlogFrontmatter>[] {

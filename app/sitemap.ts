@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next'
-import { getAllProjects, getAllPosts } from '@/lib/mdx'
+import { getAllPosts } from '@/lib/mdx'
 
 const BASE_URL = 'https://portfolio-xi-wine-28.vercel.app'
 
@@ -10,12 +10,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${BASE_URL}/about`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/projects`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
       priority: 0.8,
     },
     { url: `${BASE_URL}/blog`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
@@ -33,13 +27,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 
-  const projectRoutes: MetadataRoute.Sitemap = getAllProjects().map((p) => ({
-    url: `${BASE_URL}/projects/${p.slug}`,
-    lastModified: new Date(p.frontmatter.date),
-    changeFrequency: 'monthly',
-    priority: 0.7,
-  }))
-
   const blogRoutes: MetadataRoute.Sitemap = getAllPosts().map((p) => ({
     url: `${BASE_URL}/blog/${p.slug}`,
     lastModified: new Date(p.frontmatter.date),
@@ -47,5 +34,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
-  return [...staticRoutes, ...projectRoutes, ...blogRoutes]
+  return [...staticRoutes, ...blogRoutes]
 }

@@ -7,7 +7,6 @@ import { useTheme } from './ThemeProvider'
 
 const links = [
   { href: '/about', label: 'About' },
-  { href: '/projects', label: 'Projects' },
   { href: '/resume', label: 'Resume' },
   { href: '/blog', label: 'Blog' },
   { href: '/contact', label: 'Contact' },
@@ -21,10 +20,7 @@ export default function Nav() {
   return (
     <header className="sticky top-0 z-50 px-4 pt-4 sm:px-6 lg:px-8">
       <nav className="border-border bg-paper/82 mx-auto flex max-w-7xl items-center justify-between rounded-lg border px-4 py-3 shadow-[0_18px_60px_rgba(23,19,15,0.08)] backdrop-blur-xl">
-        <Link
-          href="/"
-          className="group flex items-center gap-3"
-        >
+        <Link href="/" className="group flex items-center gap-3">
           <span className="bg-foreground text-background flex size-9 items-center justify-center rounded-md font-mono text-xs font-bold">
             DR
           </span>
@@ -33,7 +29,7 @@ export default function Nav() {
               Dillo Raju
             </span>
             <span className="text-muted hidden font-mono text-[10px] uppercase sm:inline">
-              systems / product
+              AI / modernization
             </span>
           </span>
         </Link>
