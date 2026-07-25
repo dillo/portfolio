@@ -8,7 +8,6 @@ import { useTheme } from './ThemeProvider'
 const links = [
   { href: '/about', label: 'About' },
   { href: '/resume', label: 'Resume' },
-  { href: '/blog', label: 'Blog' },
   { href: '/contact', label: 'Contact' },
 ]
 
