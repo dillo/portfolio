@@ -15,6 +15,16 @@
   --paper: #fffaf0;
   --signal: #226b5b;
   --signal-soft: #c7ded2;
+  --warn: #8a5a12;
+  --warn-soft: #f0e2c4;
+
+  /* Categorical palette for lesson diagrams — no semantic meaning, just
+     distinguishable hues that hold up against the warm background. */
+  --diagram-rust: #b4432a;
+  --diagram-plum: #7a3f6d;
+  --diagram-amber: #96660f;
+  --diagram-teal: #226b5b;
+  --diagram-indigo: #3d5a94;
 }
 
 .dark {
@@ -30,6 +40,14 @@
   --paper: #1d1914;
   --signal: #7bd0b4;
   --signal-soft: #17382f;
+  --warn: #e0b062;
+  --warn-soft: #3a2e18;
+
+  --diagram-rust: #ff8a5b;
+  --diagram-plum: #d79ac8;
+  --diagram-amber: #e8b563;
+  --diagram-teal: #7bd0b4;
+  --diagram-indigo: #93aee8;
 }
 
 @theme inline {
@@ -45,6 +63,8 @@
   --color-paper: var(--paper);
   --color-signal: var(--signal);
   --color-signal-soft: var(--signal-soft);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
   --font-sans: var(--font-inter);
   --font-mono: var(--font-jetbrains-mono);
 }
