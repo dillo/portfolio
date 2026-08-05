@@ -28,7 +28,7 @@ export default function Nav() {
             <span className="text-foreground group-hover:text-accent text-sm font-semibold transition-colors">
               Dillo Raju
             </span>
-            <span className="text-muted hidden font-mono text-[10px] uppercase sm:inline">
+            <span className="text-muted hidden font-mono text-[11px] uppercase sm:inline">
               AI / modernization
             </span>
           </span>

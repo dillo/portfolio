@@ -1,0 +1,23 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "codex-grid-background",
+        "value": "*",
+        "files": [
+          "app/globals.css"
+        ],
+        "createdAt": "2026-08-05T02:57:08.564Z",
+        "reason": "Grid overlay is the documented 'Field Notebook' background texture in DESIGN.md, not incidental generated-UI slop"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#fff",
+        "createdAt": "2026-08-05T02:57:58.509Z",
+        "reason": "User confirmed #fff is intentional for ::selection text color against the terracotta highlight"
+      }
+    ]
+  }
+}

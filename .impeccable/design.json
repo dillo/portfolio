@@ -1,0 +1,219 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-05T02:12:11Z",
+  "title": "Design System: Dillo Raju — Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "terracotta": {
+        "role": "primary",
+        "displayName": "Terracotta",
+        "canonical": "#b4432a",
+        "tonalRamp": [
+          "#3e170e",
+          "#742b1b",
+          "#a53e27",
+          "#d15439",
+          "#dc7f6a",
+          "#e7a698",
+          "#f1cac1",
+          "#faedea"
+        ]
+      },
+      "teal": {
+        "role": "secondary",
+        "displayName": "Teal",
+        "canonical": "#226b5b",
+        "tonalRamp": [
+          "#123a31",
+          "#226c5c",
+          "#319b84",
+          "#45c4a8",
+          "#74d3be",
+          "#9ee0d2",
+          "#c5ede4",
+          "#ecf9f6"
+        ]
+      },
+      "ochre": {
+        "role": "secondary",
+        "displayName": "Ochre",
+        "canonical": "#8a5a12",
+        "tonalRamp": [
+          "#442c09",
+          "#7e5210",
+          "#b47618",
+          "#e39726",
+          "#eab15d",
+          "#f0c98e",
+          "#f6dfbb",
+          "#fcf4e8"
+        ]
+      },
+      "ink-muted": {
+        "role": "neutral",
+        "displayName": "Ink Muted",
+        "canonical": "#6e6458",
+        "tonalRamp": [
+          "#2b2722",
+          "#4f483f",
+          "#71675b",
+          "#928677",
+          "#ada499",
+          "#c6c0b8",
+          "#ddd9d4",
+          "#f4f2f1"
+        ]
+      },
+      "diagram-plum": {
+        "role": "tertiary",
+        "displayName": "Diagram Plum",
+        "canonical": "#7a3f6d"
+      },
+      "diagram-indigo": {
+        "role": "tertiary",
+        "displayName": "Diagram Indigo",
+        "canonical": "#3d5a94"
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Page-level hero headlines only (H1)." },
+      "headline": { "displayName": "Headline", "purpose": "Section H2s within a page." },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Paragraph copy, including Guides lesson prose."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Eyebrows, nav sub-labels, tags, timestamps, and code — the mono annotation register."
+      }
+    },
+    "shadows": [
+      {
+        "name": "floating-chrome",
+        "value": "0 18px 60px rgba(23,19,15,0.08)",
+        "purpose": "Soft, ink-tinted ambient shadow reserved for elements that float above the page — sticky nav and its mobile menu. Never used on in-flow cards or sections."
+      }
+    ],
+    "motion": [
+      {
+        "name": "page-transition",
+        "value": "opacity/translateY, 0.25s ease-out",
+        "purpose": "Framer Motion page-enter transition applied to route content."
+      },
+      {
+        "name": "color-transition",
+        "value": "background-color/color 0.2s ease",
+        "purpose": "Theme toggle (light/dark) crossfade on the body."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Highest-intent action per section (résumé download, primary CTA).",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">View résumé</a>",
+      "css": ".ds-btn-primary { display: inline-block; background: #17130f; color: #f5f1e8; border-radius: 8px; padding: 12px 20px; font-size: 14px; font-weight: 600; font-family: Inter, system-ui, sans-serif; text-decoration: none; transition: background-color 0.2s ease; } .ds-btn-primary:hover, .ds-btn-primary:focus-visible { background: #b4432a; } .ds-btn-primary:focus-visible { outline: 2px solid #b4432a; outline-offset: 2px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Lower-intent companion action placed next to a primary button.",
+      "html": "<a class=\"ds-btn-secondary\" href=\"#\">Start a conversation</a>",
+      "css": ".ds-btn-secondary { display: inline-block; background: rgba(255,250,240,0.7); color: #17130f; border: 1px solid #d8cab8; border-radius: 8px; padding: 12px 20px; font-size: 14px; font-weight: 600; font-family: Inter, system-ui, sans-serif; text-decoration: none; transition: border-color 0.2s ease, color 0.2s ease; } .ds-btn-secondary:hover, .ds-btn-secondary:focus-visible { border-color: #b4432a; color: #b4432a; } .ds-btn-secondary:focus-visible { outline: 2px solid #b4432a; outline-offset: 2px; }"
+    },
+    {
+      "name": "Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Default bordered, translucent, backdrop-blurred content panel.",
+      "html": "<div class=\"ds-card\"><p class=\"ds-eyebrow\">01</p><h3 class=\"ds-card-title\">Agentic workflows</h3><p class=\"ds-card-body\">AI-agent skills that automate upgrades.</p></div>",
+      "css": ".ds-card { background: rgba(255,250,240,0.72); backdrop-filter: blur(12px); border: 1px solid #d8cab8; border-radius: 12px; padding: 20px; font-family: Inter, system-ui, sans-serif; } .ds-eyebrow { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: #b4432a; margin: 0 0 32px; } .ds-card-title { font-size: 20px; font-weight: 700; letter-spacing: -0.01em; color: #17130f; margin: 0 0 12px; } .ds-card-body { font-size: 14px; line-height: 1.6; color: #6e6458; margin: 0; }"
+    },
+    {
+      "name": "Tag Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Outline-only pill used to list skills/tools without implying selectability.",
+      "html": "<span class=\"ds-chip\">Claude Code</span>",
+      "css": ".ds-chip { display: inline-block; background: rgba(255,250,240,0.72); border: 1px solid #d8cab8; border-radius: 9999px; padding: 6px 12px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; text-transform: uppercase; color: #17130f; }"
+    },
+    {
+      "name": "Callout — Tip",
+      "kind": "custom",
+      "refersTo": "callout-tip",
+      "description": "Signature Guides component: colored-left-border annotation block. Tip tone uses Teal; Note uses Terracotta; Watch out uses Ochre.",
+      "html": "<aside class=\"ds-callout ds-callout-tip\"><p class=\"ds-callout-kicker\">Tip · Batching calls</p><p class=\"ds-callout-body\">Send independent tool calls together to cut round-trip latency.</p></aside>",
+      "css": ".ds-callout { background: rgba(255,250,240,0.7); border-left: 2px solid #226b5b; border-radius: 0 12px 12px 0; padding: 16px 20px; font-family: Inter, system-ui, sans-serif; } .ds-callout-kicker { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: #226b5b; margin: 0 0 6px; } .ds-callout-body { font-size: 15.5px; line-height: 1.7; color: #6e6458; margin: 0; }"
+    },
+    {
+      "name": "Code Block",
+      "kind": "custom",
+      "refersTo": "code-block",
+      "description": "Bordered, scrollable monospace block used for code in Guides lessons.",
+      "html": "<div class=\"ds-code\"><pre><code>const x = 1</code></pre></div>",
+      "css": ".ds-code { background: #fffaf0; border: 1px solid #d8cab8; border-radius: 12px; overflow-x: auto; } .ds-code pre { margin: 0; padding: 20px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; line-height: 1.65; color: #17130f; }"
+    },
+    {
+      "name": "Navigation Bar",
+      "kind": "nav",
+      "refersTo": "nav",
+      "description": "Sticky, inset, floating pill nav with a solid monogram mark and pill-style active link state.",
+      "html": "<nav class=\"ds-nav\"><span class=\"ds-nav-mark\">DR</span><a class=\"ds-nav-link ds-nav-link-active\" href=\"#\">About</a><a class=\"ds-nav-link\" href=\"#\">Guides</a></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; gap: 12px; background: rgba(255,250,240,0.82); backdrop-filter: blur(20px); border: 1px solid #d8cab8; border-radius: 12px; padding: 12px 16px; box-shadow: 0 18px 60px rgba(23,19,15,0.08); font-family: Inter, system-ui, sans-serif; } .ds-nav-mark { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: #17130f; color: #f5f1e8; border-radius: 8px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; font-weight: 700; } .ds-nav-link { padding: 6px 12px; border-radius: 6px; font-size: 13px; font-weight: 500; color: #6e6458; text-decoration: none; transition: background-color 0.2s ease, color 0.2s ease; } .ds-nav-link:hover { background: #fffaf0; color: #17130f; } .ds-nav-link-active { background: #17130f; color: #f5f1e8; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Field Notebook",
+    "overview": "This is a working engineer's notebook, not a marketing brochure: warm ledger-paper surfaces, a faint graph-paper grid ruled behind everything, and mono-set labels that read like margin annotations rather than UI chrome. Terracotta is the primary ink; teal and ochre are secondary pens reserved for annotation (tips, warnings) rather than decoration. The voice is technical, disciplined, and quiet — it earns credibility through precision and restraint, not through flourish. Nothing here is loud; the loudest elements are oversized black display type and a single warm accent, used sparingly.\n\nDensity stays moderate-to-generous: sections breathe with real whitespace, but content itself (body copy, lesson text, toolbox chips) sits close and information-dense within its own block, the way handwritten notes are compact even on a spacious page. Depth comes from layered translucency and texture, not from shadow — surfaces are flat panels of tinted, blurred paper floating over a subtly textured backdrop.",
+    "keyCharacteristics": [
+      "Warm, ink-on-paper palette (cream, terracotta, ink-black) with teal/ochre as annotation-only secondary colors",
+      "A ruled grid + soft radial color blooms sit fixed behind every page, visible through translucent panels",
+      "Mono type (JetBrains Mono) exclusively for labels, eyebrows, timestamps, and code — never for prose",
+      "Inter carries all reading type, from massive black display headlines to body copy",
+      "Flat, bordered, backdrop-blurred cards; shadow is reserved for floating chrome only (nav, mobile menu)",
+      "Dark mode inverts the paper (near-black ground) and brightens the inks so the same notebook reads at night"
+    ],
+    "rules": [
+      {
+        "name": "The One Ink Rule",
+        "body": "Terracotta is the only color that appears on interactive, non-Guides UI. Teal and ochre exist solely to distinguish Guides callout types and diagram categories — introducing either into nav, buttons, or marketing sections breaks the ink-vs-annotation distinction the whole system depends on.",
+        "section": "colors"
+      },
+      {
+        "name": "The Translucent Paper Rule",
+        "body": "Card and panel backgrounds are never fully opaque against the textured page (bg-paper/58 through bg-paper/82 are the observed range) — the background texture must remain faintly visible through every surface. A fully opaque card reads as a foreign, un-textured element.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two-Register Rule",
+        "body": "Every piece of text is either a headline register (Inter, bold-to-black, tight tracking, mixed case) or a label register (JetBrains Mono, regular weight, uppercase, wider tracking). There is no intermediate 'medium-weight sans' register — semibold Inter appears only on buttons and nav active-state, never as a heading style.",
+        "section": "typography"
+      },
+      {
+        "name": "The Floating-Chrome-Only Rule",
+        "body": "If an element scrolls with the page, it gets border + blur, never shadow. Shadow is the one visual signal reserved for elements that break out of normal flow (sticky/floating), so introducing it elsewhere would blur that signal.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do keep the page's fixed grid-and-bloom background visible through every card via translucency + blur — it's the notebook-paper texture the whole system sits on, not incidental decoration.",
+      "Do use JetBrains Mono exclusively for the label register (eyebrows, tags, timestamps, code); never set body or heading copy in it.",
+      "Do reserve Teal and Ochre for Guides callouts and diagram categories only; keep all other interactive UI to the Terracotta/Ink pairing.",
+      "Do use border + backdrop-blur, not box-shadow, for any new in-flow panel or card.",
+      "Do keep copy specific and outcome-based (named orgs, real numbers) rather than generic self-description, matching the existing voice."
+    ],
+    "donts": [
+      "Don't introduce a second accent color into nav, buttons, or non-Guides marketing sections — Terracotta stays the system's one voice.",
+      "Don't add box-shadow to in-flow content cards or sections; shadow is reserved for the sticky nav and its mobile menu only.",
+      "Don't reuse the colored-left-border callout treatment as generic card styling outside Guides callouts — it's a signature component, not a default card variant.",
+      "Don't set prose or headings in JetBrains Mono, or labels/eyebrows in Inter — the two-register split is load-bearing for the 'notebook' read."
+    ]
+  }
+}

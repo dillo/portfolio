@@ -9,44 +9,28 @@ export const metadata: Metadata = {
 
 const toolbox = [
   {
-    group: 'AI & developer productivity',
-    items: [
-      'Codex',
-      'Claude Code',
-      'AI-agent skills',
-      'Agentic workflows',
-      'Code generation',
-      'Upgrade automation',
-    ],
+    group: 'AI tooling',
+    items: ['Codex', 'Claude Code', 'AI-agent skills'],
   },
   {
-    group: 'Languages & frameworks',
-    items: [
-      'Ruby',
-      'Ruby on Rails',
-      'Java',
-      'Spring Boot',
-      'JavaScript',
-      'React',
-      'Vue.js',
-      'Python',
-      'SQL',
-    ],
+    group: 'Automation & workflows',
+    items: ['Agentic workflows', 'Code generation', 'Upgrade automation'],
   },
   {
-    group: 'Architecture & delivery',
-    items: [
-      'REST APIs',
-      'Service-oriented architecture',
-      'CI/CD',
-      'Docker',
-      'AWS',
-      'PostgreSQL',
-      'MySQL',
-      'Redis',
-      'Elasticsearch',
-      'TDD',
-    ],
+    group: 'Languages',
+    items: ['Ruby', 'Java', 'JavaScript', 'Python', 'SQL'],
+  },
+  {
+    group: 'Frameworks',
+    items: ['Ruby on Rails', 'Spring Boot', 'React', 'Vue.js'],
+  },
+  {
+    group: 'Architecture & practices',
+    items: ['REST APIs', 'Service-oriented architecture', 'CI/CD', 'Docker', 'TDD'],
+  },
+  {
+    group: 'Data & infrastructure',
+    items: ['AWS', 'PostgreSQL', 'MySQL', 'Redis', 'Elasticsearch'],
   },
 ]
 

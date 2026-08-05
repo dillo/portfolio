@@ -5,6 +5,26 @@ export const metadata: Metadata = {
   description: 'Resume of Dillo Raju, senior software engineer.',
 }
 
+const highlights = [
+  {
+    label: '15 years',
+    detail:
+      'shipping production software — Argonne National Laboratory, Panorama Education, GovCIO, RentPath.',
+  },
+  {
+    label: '~20 apps',
+    detail: 'co-leading migration of legacy Ruby applications to Java, Spring Boot, and React.',
+  },
+  {
+    label: '10+ engineers',
+    detail: 'using AI-agent skills built for Codex and Claude Code to automate upgrades.',
+  },
+  {
+    label: 'Millions of users',
+    detail: 'served by products built for education, healthcare, and real estate teams.',
+  },
+]
+
 export default function Resume() {
   return (
     <div className="flex flex-col gap-8">
@@ -24,7 +44,16 @@ export default function Resume() {
         </a>
       </div>
 
-      <div className="border-border bg-paper overflow-hidden rounded-lg border p-2 shadow-[0_18px_60px_rgba(23,19,15,0.08)]">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {highlights.map(({ label, detail }) => (
+          <div key={label} className="border-border bg-paper/58 rounded-lg border p-5">
+            <p className="text-foreground text-xl font-black tracking-tight">{label}</p>
+            <p className="text-muted mt-2 text-sm leading-6">{detail}</p>
+          </div>
+        ))}
+      </div>
+
+      <div className="border-border bg-paper/72 overflow-hidden rounded-lg border p-2 backdrop-blur">
         <iframe
           src="/resume.pdf"
           className="w-full rounded-md"

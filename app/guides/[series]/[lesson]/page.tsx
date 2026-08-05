@@ -105,7 +105,7 @@ export default async function LessonPage({ params }: Props) {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${accent.text} hover:text-accent-hover text-sm underline underline-offset-4 transition-colors`}
+                  className={`${accent.text} text-sm underline decoration-1 underline-offset-4 transition-opacity hover:opacity-75`}
                 >
                   {link.label} ↗
                 </a>

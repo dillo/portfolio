@@ -42,3 +42,7 @@ next-env.d.ts
 
 # claude
 /.claude/
+
+# impeccable (design skill) — session-local caches, not project config
+.impeccable/hook.cache.json
+.impeccable/config.local.json

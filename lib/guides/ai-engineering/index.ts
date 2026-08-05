@@ -39,7 +39,7 @@ export const aiEngineering: Series = {
   blurb: 'From the next-token loop to agents you can ship.',
   intro:
     'A working engineer’s path through applied AI: how language models behave, how to ground them in your own data, how agents actually run, and what it takes to put any of it in production.',
-  accent: 'accent',
+  accent: 'signal',
   modules,
   // Curriculum order — also the prev/next reading order within the series.
   lessons: [...foundations, ...retrieval, ...agents, ...production, ...practice],
