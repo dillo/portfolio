@@ -1,8 +1,9 @@
 import type { Lesson, Module, Series } from './types'
 import { aiEngineering } from './ai-engineering'
+import { rubyOnRails } from './ruby-on-rails'
 
 /** Every series, in the order they appear on /guides. */
-export const series: Series[] = [aiEngineering]
+export const series: Series[] = [aiEngineering, rubyOnRails]
 
 const bySeriesId = new Map(series.map((s) => [s.id, s]))
 
