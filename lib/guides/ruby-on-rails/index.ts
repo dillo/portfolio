@@ -1,5 +1,6 @@
 import type { Series } from '../types'
 import { railsAssetPipelines } from './rails-asset-pipelines'
+import { railsRequestPath } from './rails-request-path'
 
 export const rubyOnRails: Series = {
   id: 'ruby-on-rails',
@@ -9,5 +10,5 @@ export const rubyOnRails: Series = {
     'Self-contained guides to Ruby on Rails, one topic at a time. Start with the concept you need and explore how it behaves in development and production.',
   accent: 'accent',
   modules: [],
-  lessons: [railsAssetPipelines],
+  lessons: [railsAssetPipelines, railsRequestPath],
 }
