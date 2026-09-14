@@ -42,32 +42,7 @@ export const railsRequestPath: Lesson = {
         },
         {
           kind: 'p',
-          text: '**Puma manages the request thread pool**: how many threads are available and which requests they handle. **CRuby (MRI)**, the usual Ruby interpreter, manages their turns executing Ruby code through the **Global VM Lock (GVL)**. The operating system also schedules the underlying threads.',
-        },
-        {
-          kind: 'p',
-          text: 'The GVL allows only one thread per worker to execute Ruby code at a time, but **a request does not need to finish before another runs**. Threads take turns, and a thread waiting for a database query or an external API response can release the lock so another can execute Ruby code.',
-        },
-        {
-          kind: 'list',
-          ordered: true,
-          items: [
-            'Request A runs Ruby code, then waits for a database query.',
-            'Request B runs Ruby code in another thread while A waits.',
-            'A’s query returns; A resumes when its thread gets a turn.',
-          ],
-        },
-        {
-          kind: 'p',
-          text: 'Both requests are in progress together, even though their Ruby code is not executing simultaneously. Threads help use waiting time; they do not make Ruby-heavy calculations run in parallel within one worker.',
-        },
-        {
-          kind: 'p',
-          text: 'Each worker has its own lock, so separate workers can execute Ruby code at the same time on different CPU cores. For example, two workers with five request threads each can handle up to ten requests in progress, with up to two threads executing Ruby code at once.',
-        },
-        {
-          kind: 'p',
-          text: 'More concurrency increases demand on memory and resources such as database connections. Settings belong in `config/puma.rb` and should match the deployment. A production reverse proxy or load balancer may sit in front of Puma.',
+          text: 'The next lesson, How Puma Runs Your Rails Application, follows several requests through worker processes, thread pools, the GVL, and database waits. It also explains configuration, preloading, and restarts.',
         },
       ],
     },
