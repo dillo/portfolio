@@ -9,6 +9,35 @@ const calloutStyles = {
 
 function BlockView({ block }: { block: Block }) {
   switch (block.kind) {
+    case 'heading':
+      return <h3 className="text-foreground text-lg font-bold">{block.text}</h3>
+    case 'table':
+      return (
+        <div className="border-border overflow-x-auto rounded-lg border">
+          <table className="text-muted w-full text-left text-sm leading-6">
+            <thead className="bg-card text-foreground">
+              <tr>
+                {block.headers.map((header, i) => (
+                  <th key={i} scope="col" className="px-4 py-3 font-semibold">
+                    <Inline text={header} />
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {block.rows.map((row, i) => (
+                <tr key={i} className="border-border border-t">
+                  {row.map((cell, j) => (
+                    <td key={j} className="px-4 py-3 align-top">
+                      <Inline text={cell} />
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )
     case 'p':
       return (
         <p className="text-muted text-[16.5px] leading-[1.75]">

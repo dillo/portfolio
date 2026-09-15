@@ -11,6 +11,8 @@ export type Block =
   | { kind: 'list'; ordered?: boolean; items: string[] }
   | { kind: 'callout'; tone: 'tip' | 'note' | 'warn'; title: string; text: string }
   | { kind: 'code'; lang: string; code: string }
+  | { kind: 'heading'; text: string }
+  | { kind: 'table'; headers: string[]; rows: string[][] }
 
 export interface Section {
   heading: string

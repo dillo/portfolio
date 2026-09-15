@@ -15,6 +15,8 @@ Topic ideas for working Rails developers who want to understand the mechanisms b
 
 - Rails Asset Pipelines: Sprockets, Propshaft, and development versus production.
 - How Rails Handles a Request: Puma, Rack, middleware, engines, and gems.
+- How Puma Runs Your Rails Application: workers, threads, concurrency, and process lifecycle.
+- How Rails Loads Your Code: Rails 8.0, Zeitwerk, naming, eager loading, and reloading.
 
 ## Rails under the hood
 

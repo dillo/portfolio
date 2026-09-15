@@ -1,13 +1,27 @@
-/** Renders lesson text with minimal inline markup: **bold**, *italic*, and `code`. */
+/** Renders lesson emphasis, code, and HTTP(S) source links. */
 export function Inline({ text }: { text: string }) {
-  const parts = text.split(/(\*\*[^*]+\*\*|\*[^*]+\*|`[^`]+`)/g)
+  const parts = text.split(/(\[[^\]]+\]\(https?:\/\/[^\s)]+\)|\*\*[^*]+\*\*|\*[^*]+\*|`[^`]+`)/g)
   return (
     <>
       {parts.map((part, i) => {
+        const link = part.match(/^\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)$/)
+        if (link) {
+          return (
+            <a
+              key={i}
+              href={link[2]}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accent underline underline-offset-4"
+            >
+              <Inline text={link[1]} />
+            </a>
+          )
+        }
         if (part.startsWith('**') && part.endsWith('**')) {
           return (
             <strong key={i} className="text-foreground font-semibold">
-              {part.slice(2, -2)}
+              <Inline text={part.slice(2, -2)} />
             </strong>
           )
         }
