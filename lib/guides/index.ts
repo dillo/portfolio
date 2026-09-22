@@ -2,9 +2,10 @@ import type { Lesson, Module, Series } from './types'
 import { aiEngineering } from './ai-engineering'
 import { rubyOnRails } from './ruby-on-rails'
 import { elixir } from './elixir'
+import { commandLine } from './command-line'
 
 /** Every series, in the order they appear on /guides. */
-export const series: Series[] = [aiEngineering, rubyOnRails, elixir]
+export const series: Series[] = [aiEngineering, rubyOnRails, elixir, commandLine]
 
 const bySeriesId = new Map(series.map((s) => [s.id, s]))
 
