@@ -20,7 +20,7 @@ Topic ideas for working Rails developers who want to understand the mechanisms b
 
 ## Rails under the hood
 
-### 1. How Puma Runs Your Rails Application
+### 1. How Puma Runs Your Rails Application - Done
 
 **Anchor question:** What actually happens when several requests reach my Rails application at once?
 
@@ -30,7 +30,7 @@ Place this guide immediately after the request-path introduction and before data
 
 [Puma documentation](https://puma.io/puma/)
 
-### 2. How Rails Loads Your Code
+### 2. How Rails Loads Your Code - Done
 
 **Anchor question:** Why does this work in development but fail when the application boots in production?
 
@@ -38,7 +38,7 @@ Cover Zeitwerk, file-to-constant naming, autoloading, eager loading, and reloadi
 
 [Rails autoloading guide](https://guides.rubyonrails.org/autoloading_and_reloading_constants.html)
 
-### 3. How Rails Shares Database Connections
+### 3. How Rails Shares Database Connections - Done
 
 **Anchor question:** Why are requests waiting for a connection when the database is not running a slow query?
 
@@ -46,7 +46,7 @@ Connect Puma workers and threads to Active Record connection pools. Explain borr
 
 [Active Record connection pools](https://api.rubyonrails.org/classes/ActiveRecord/ConnectionAdapters/ConnectionPool.html)
 
-### 4. When Active Record Actually Runs SQL
+### 4. When Active Record Actually Runs SQL - Done
 
 **Anchor question:** Which line hits the database, and why did this loop execute 100 queries?
 
@@ -54,7 +54,7 @@ Follow a relation from `User.where(...)` to loaded Ruby objects. Cover lazy eval
 
 [Active Record query interface](https://guides.rubyonrails.org/active_record_querying.html)
 
-### 5. Background Jobs: What Happens After perform_later?
+### 5. Background Jobs: What Happens After perform_later? - Done
 
 **Anchor question:** Which process runs this job, and what happens if it fails halfway through?
 
@@ -64,7 +64,7 @@ This was previously titled “What Happens After perform_later?”; background j
 
 [Active Job guide](https://guides.rubyonrails.org/active_job_basics.html)
 
-### 6. What a Database Transaction Actually Protects
+### 6. What a Database Transaction Actually Protects - Done
 
 **Anchor question:** How did the email get sent when the record was rolled back?
 
