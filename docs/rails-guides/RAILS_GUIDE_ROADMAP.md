@@ -72,7 +72,7 @@ Explain commit and rollback, `after_save` versus `after_commit`, and the boundar
 
 [Active Record transactions](https://api.rubyonrails.org/classes/ActiveRecord/Transactions/ClassMethods.html)
 
-### 7. Where Rails Caches Actually Live
+### 7. Where Rails Caches Actually Live - Done
 
 **Anchor question:** Why does one request see the cached value while another does not?
 
@@ -80,7 +80,7 @@ Distinguish query caching, fragment caching, and `Rails.cache`. Explain keys, ex
 
 [Rails caching guide](https://guides.rubyonrails.org/caching_with_rails.html)
 
-### 8. What Happens When Rails Boots?
+### 8. What Happens When Rails Boots? - Done
 
 **Anchor question:** Where should this configuration go, and when does it run?
 
